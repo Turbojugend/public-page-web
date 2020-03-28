@@ -232,79 +232,51 @@ function App() {
                                             id="warrior-name"
                                             label="Warrior name"
                                             style={{margin: 8}}
-                                            placeholder="Your warrior name"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="optional-teaser"
                                             label="Optional teaser"
                                             style={{margin: 8}}
-                                            placeholder="Optional teaser"
                                             multiline
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="first-name"
                                             label="First name"
                                             style={{margin: 8}}
-                                            placeholder="Your real first name"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="last-name"
                                             label="Last name"
                                             style={{margin: 8}}
-                                            placeholder="Your real last name"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="street"
                                             label="Street"
                                             style={{margin: 8}}
-                                            placeholder="Street"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="zip-code"
                                             label="Zip code"
                                             style={{margin: 8}}
-                                            placeholder="ZIP"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="city"
                                             label="City"
                                             style={{margin: 8}}
-                                            placeholder="City"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <FormControl variant="outlined" className={classes.formControl}
                                                      fullWidth={true}>
@@ -355,13 +327,9 @@ function App() {
                                             id="hobbies"
                                             label="Hobbies"
                                             style={{margin: 8}}
-                                            placeholder="Hobbies"
                                             multiline
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <FormControl className={classes.formControl} fullWidth={true}>
                                             <InputLabel htmlFor="input-with-icon-adornment">Movile phone</InputLabel>
@@ -379,12 +347,8 @@ function App() {
                                             id="soccer-team"
                                             label="Soccer team"
                                             style={{margin: 8}}
-                                            placeholder="Soccer team"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
                                             <InputLabel id="warship-select-label">Warship</InputLabel>
@@ -404,48 +368,32 @@ function App() {
                                             id="warship"
                                             label="Warship"
                                             style={{margin: 8}}
-                                            placeholder="Warship"
                                             fullWidth
                                             required
                                             value={warship}
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="optional-headline"
                                             label="Optional headline"
                                             style={{margin: 8}}
-                                            placeholder="Optional headline"
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="optional-text-1"
                                             label="Optional text 1"
                                             style={{margin: 8}}
-                                            placeholder="Optional text 1"
                                             multiline
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                         <TextField
                                             id="optional-text-2"
                                             label="Optional text 2"
                                             style={{margin: 8}}
-                                            placeholder="Optional text 2"
                                             multiline
                                             fullWidth
                                             required
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
                                         />
                                     </Grid>
                                     <Grid item xs={6}>
