@@ -24,8 +24,6 @@ import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import MailIcon from '@material-ui/icons/Mail';
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
@@ -34,7 +32,10 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import {useDropzone} from 'react-dropzone'
+import {useDropzone} from 'react-dropzone';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import parse from 'autosuggest-highlight/parse';
+import match from 'autosuggest-highlight/match';
 
 const drawerWidth = 260;
 
@@ -155,6 +156,30 @@ function App() {
         {name: 'Jugend communication', icon: <MailIcon/>}
     ];
 
+    const countryList = [
+        {name: 'Country 1'},
+        {name: 'Country 2'},
+        {name: 'Country 3'},
+    ];
+
+    const jugendList = [
+        {name: 'Jugend 1'},
+        {name: 'Jugend 2'},
+        {name: 'Jugend 3'},
+    ];
+
+    const positionList = [
+        {name: 'Position 1'},
+        {name: 'Position 2'},
+        {name: 'Position 3'},
+    ];
+
+    const warshipList = [
+        {name: 'Warship 1'},
+        {name: 'Warship 2'},
+        {name: 'Warship 3'},
+    ];
+
     const onDrop = useCallback(acceptedFiles => {
         // Do something with the files
     }, []);
@@ -220,7 +245,7 @@ function App() {
                         <div className={classes.toolbar}/>
                         <Container maxWidth="sm" className={classes.formContainer}>
                             <form noValidate autoComplete="off" className={classes.form}>
-                                <Grid container>
+                                <Grid container spacing={3}>
                                     <Grid item xs={12}>
                                         <p>If you want to join an existing jugend please get in touch with the local
                                             president.</p>
@@ -275,50 +300,78 @@ function App() {
                                             style={{margin: 8}}
                                             fullWidth
                                         />
-                                        <FormControl variant="outlined" className={classes.formControl}
-                                                     fullWidth={true}>
-                                            <InputLabel id="country-select-label">Country</InputLabel>
-                                            <Select
-                                                labelId="country-select-label"
-                                                id="country-select"
-                                                value={country}
-                                                autoWidth={true}
-                                                required={true}
+                                        <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
+                                            <Autocomplete
+                                                id="country"
+                                                options={countryList}
+                                                getOptionLabel={option => option.name}
+                                                renderInput={params => <TextField {...params} label="Country" variant="outlined" />}
                                                 onChange={handleCountryChange}
-                                            >
-                                                <MenuItem value={1}>Country 1</MenuItem>
-                                                <MenuItem value={2}>Country 2</MenuItem>
-                                                <MenuItem value={3}>Country 3</MenuItem>
-                                            </Select>
+                                                renderOption={(option, {inputValue}) => {
+                                                    const matches = match(option.name, inputValue);
+                                                    const parts = parse(option.name, matches);
+
+                                                    return (
+                                                        <div>
+                                                            {parts.map((part, index) => (
+                                                                <span key={index}
+                                                                      style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                                            ))}
+                                                        </div>
+                                                    );
+                                                }}
+                                            />
                                         </FormControl>
                                         <FormControl variant="outlined" className={classes.formControl}
                                                      fullWidth={true}>
-                                            <InputLabel id="jugend-select-label">Turbojugend</InputLabel>
-                                            <Select
-                                                labelId="jugend-select-label"
-                                                id="jugend-select"
-                                                value={jugend}
-                                                required={true}
+                                            <Autocomplete
+                                                id="jugend"
+                                                options={jugendList}
+                                                getOptionLabel={option => option.name}
                                                 onChange={handleJugendChange}
-                                            >
-                                                <MenuItem value={1}>Tubojugend 1</MenuItem>
-                                                <MenuItem value={2}>Tubojugend 2</MenuItem>
-                                                <MenuItem value={3}>Tubojugend 3</MenuItem>
-                                            </Select>
+                                                renderInput={params => (
+                                                    <TextField {...params} label="Jugend" variant="outlined"
+                                                               margin="normal"/>
+                                                )}
+                                                renderOption={(option, {inputValue}) => {
+                                                    const matches = match(option.name, inputValue);
+                                                    const parts = parse(option.name, matches);
+
+                                                    return (
+                                                        <div>
+                                                            {parts.map((part, index) => (
+                                                                <span key={index}
+                                                                      style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                                            ))}
+                                                        </div>
+                                                    );
+                                                }}
+                                            />
                                         </FormControl>
                                         <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
-                                            <InputLabel id="position-select-label">Position</InputLabel>
-                                            <Select
-                                                labelId="position-select-label"
-                                                id="position-select"
-                                                value={position}
-                                                required={true}
+                                            <Autocomplete
+                                                id="position"
+                                                options={positionList}
+                                                getOptionLabel={option => option.name}
                                                 onChange={handlePositionChange}
-                                            >
-                                                <MenuItem value={1}>Position 1</MenuItem>
-                                                <MenuItem value={2}>Position 2</MenuItem>
-                                                <MenuItem value={3}>Position 3</MenuItem>
-                                            </Select>
+                                                renderInput={params => (
+                                                    <TextField {...params} label="Position" variant="outlined"
+                                                               margin="normal"/>
+                                                )}
+                                                renderOption={(option, {inputValue}) => {
+                                                    const matches = match(option.name, inputValue);
+                                                    const parts = parse(option.name, matches);
+
+                                                    return (
+                                                        <div>
+                                                            {parts.map((part, index) => (
+                                                                <span key={index}
+                                                                      style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                                            ))}
+                                                        </div>
+                                                    );
+                                                }}
+                                            />
                                         </FormControl>
                                         <TextField
                                             id="hobbies"
@@ -345,18 +398,31 @@ function App() {
                                             style={{margin: 8}}
                                             fullWidth
                                         />
-                                        <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
-                                            <InputLabel id="warship-select-label">Warship</InputLabel>
-                                            <Select
-                                                labelId="warship-select-label"
-                                                id="warship-select"
-                                                value={warship}
+                                        <FormControl variant="outlined" className={classes.formControl}
+                                                     fullWidth={true}>
+                                            <Autocomplete
+                                                id="warship"
+                                                options={warshipList}
+                                                getOptionLabel={option => option.name}
                                                 onChange={handleWarshipChange}
-                                            >
-                                                <MenuItem value={'Warship 1'}>Warship 1</MenuItem>
-                                                <MenuItem value={'Warship 2'}>Warship 2</MenuItem>
-                                                <MenuItem value={'Warship 3'}>Warship 3</MenuItem>
-                                            </Select>
+                                                renderInput={params => (
+                                                    <TextField {...params} label="Warship" variant="outlined"
+                                                               margin="normal"/>
+                                                )}
+                                                renderOption={(option, {inputValue}) => {
+                                                    const matches = match(option.name, inputValue);
+                                                    const parts = parse(option.name, matches);
+
+                                                    return (
+                                                        <div>
+                                                            {parts.map((part, index) => (
+                                                                <span key={index}
+                                                                      style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                                            ))}
+                                                        </div>
+                                                    );
+                                                }}
+                                            />
                                         </FormControl>
                                         <TextField
                                             id="warship"
@@ -395,6 +461,13 @@ function App() {
                                                     <p>Drag 'n' drop some files here, or click to select files</p>
                                             }
                                         </div>
+                                        <TextField
+                                            id="image-caption"
+                                            label="Image caption"
+                                            style={{margin: 8}}
+                                            multiline
+                                            fullWidth
+                                        />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Button variant="contained" color="primary">
