@@ -262,21 +262,18 @@ function App() {
                                             label="Street"
                                             style={{margin: 8}}
                                             fullWidth
-                                            required
                                         />
                                         <TextField
                                             id="zip-code"
                                             label="Zip code"
                                             style={{margin: 8}}
                                             fullWidth
-                                            required
                                         />
                                         <TextField
                                             id="city"
                                             label="City"
                                             style={{margin: 8}}
                                             fullWidth
-                                            required
                                         />
                                         <FormControl variant="outlined" className={classes.formControl}
                                                      fullWidth={true}>
@@ -329,10 +326,9 @@ function App() {
                                             style={{margin: 8}}
                                             multiline
                                             fullWidth
-                                            required
                                         />
                                         <FormControl className={classes.formControl} fullWidth={true}>
-                                            <InputLabel htmlFor="input-with-icon-adornment">Movile phone</InputLabel>
+                                            <InputLabel htmlFor="input-with-icon-adornment">Mobile phone</InputLabel>
                                             <Input
                                                 id="input-with-icon-adornment"
                                                 fullWidth
@@ -348,7 +344,6 @@ function App() {
                                             label="Soccer team"
                                             style={{margin: 8}}
                                             fullWidth
-                                            required
                                         />
                                         <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
                                             <InputLabel id="warship-select-label">Warship</InputLabel>
@@ -356,7 +351,6 @@ function App() {
                                                 labelId="warship-select-label"
                                                 id="warship-select"
                                                 value={warship}
-                                                required={true}
                                                 onChange={handleWarshipChange}
                                             >
                                                 <MenuItem value={'Warship 1'}>Warship 1</MenuItem>
@@ -366,10 +360,9 @@ function App() {
                                         </FormControl>
                                         <TextField
                                             id="warship"
-                                            label="Warship"
+                                            label="Favourite warship"
                                             style={{margin: 8}}
                                             fullWidth
-                                            required
                                             value={warship}
                                         />
                                         <TextField
@@ -377,7 +370,6 @@ function App() {
                                             label="Optional headline"
                                             style={{margin: 8}}
                                             fullWidth
-                                            required
                                         />
                                         <TextField
                                             id="optional-text-1"
@@ -385,7 +377,6 @@ function App() {
                                             style={{margin: 8}}
                                             multiline
                                             fullWidth
-                                            required
                                         />
                                         <TextField
                                             id="optional-text-2"
@@ -393,7 +384,6 @@ function App() {
                                             style={{margin: 8}}
                                             multiline
                                             fullWidth
-                                            required
                                         />
                                     </Grid>
                                     <Grid item xs={6}>
