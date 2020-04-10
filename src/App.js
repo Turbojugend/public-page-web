@@ -16,6 +16,12 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Menu from "./Components/Common/Menu/Menu";
 import JoinChapter from "./Components/Sections/JoinChapter/JoinChapter";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import Home from "./Components/Sections/Home/Home";
 
 const drawerWidth = 260;
 
@@ -108,63 +114,73 @@ function App() {
     };
 
     return (
-        <Box component="span" m={1}>
-            <div className="App">
-                <div className={classes.root}>
-                    <CssBaseline/>
-                    <AppBar
-                        position="fixed"
-                        className={clsx(classes.appBar, {
-                            [classes.appBarShift]: open,
-                        })}
-                    >
-                        <Toolbar>
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                onClick={handleDrawerOpen}
-                                edge="start"
-                                className={clsx(classes.menuButton, {
-                                    [classes.hide]: open,
-                                })}
-                            >
-                                <MenuIcon/>
-                            </IconButton>
-                            <Typography variant="h6" noWrap>
-                                Turbojugend
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                    <Drawer
-                        variant="permanent"
-                        className={clsx(classes.drawer, {
-                            [classes.drawerOpen]: open,
-                            [classes.drawerClose]: !open,
-                        })}
-                        classes={{
-                            paper: clsx({
+        <Router>
+            <Box component="span" m={1}>
+                <div className="App">
+                    <div className={classes.root}>
+                        <CssBaseline/>
+                        <AppBar
+                            style={{"background":"black"}}
+                            position="fixed"
+                            className={clsx(classes.appBar, {
+                                [classes.appBarShift]: open,
+                            })}
+                        >
+                            <Toolbar>
+                                <IconButton
+                                    color="inherit"
+                                    aria-label="open drawer"
+                                    onClick={handleDrawerOpen}
+                                    edge="start"
+                                    className={clsx(classes.menuButton, {
+                                        [classes.hide]: open,
+                                    })}
+                                >
+                                    <MenuIcon/>
+                                </IconButton>
+                                <Typography variant="h6" noWrap>
+                                    Turbojugend
+                                </Typography>
+                            </Toolbar>
+                        </AppBar>
+                        <Drawer
+                            variant="permanent"
+                            className={clsx(classes.drawer, {
                                 [classes.drawerOpen]: open,
                                 [classes.drawerClose]: !open,
-                            }),
-                        }}
-                    >
-                        <div className={classes.toolbar}>
-                            <IconButton onClick={handleDrawerClose}>
-                                {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
-                            </IconButton>
-                        </div>
-                        <Divider/>
-                        <Menu/>
-                    </Drawer>
-                    <main className={classes.content}>
-                        <div className={classes.toolbar}/>
-                        <Container maxWidth="sm" className={classes.formContainer}>
-                            <JoinChapter/>
-                        </Container>
-                    </main>
+                            })}
+                            classes={{
+                                paper: clsx({
+                                    [classes.drawerOpen]: open,
+                                    [classes.drawerClose]: !open,
+                                }),
+                            }}
+                        >
+                            <div className={classes.toolbar}>
+                                <IconButton onClick={handleDrawerClose}>
+                                    {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
+                                </IconButton>
+                            </div>
+                            <Divider/>
+                            <Menu/>
+                        </Drawer>
+                        <main className={classes.content}>
+                            <div className={classes.toolbar}/>
+                            <Container maxWidth="sm" className={classes.formContainer}>
+                                <Switch>
+                                    <Route path="/join-a-chapter">
+                                        <JoinChapter/>
+                                    </Route>
+                                    <Route path="/">
+                                        <Home/>
+                                    </Route>
+                                </Switch>
+                            </Container>
+                        </main>
+                    </div>
                 </div>
-            </div>
-        </Box>
+            </Box>
+        </Router>
     );
 }
 
