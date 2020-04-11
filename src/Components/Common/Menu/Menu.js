@@ -9,10 +9,27 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PublicIcon from "@material-ui/icons/Public";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import MailIcon from "@material-ui/icons/Mail";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
+import {makeStyles} from "@material-ui/core/styles";
+
+const useStyles = makeStyles(({
+    menuLink: {
+        textDecoration: "none",
+        color: "#000",
+        display: "block",
+    },
+    menuLinkActive: {
+        background: "#CCC"
+    },
+    menuIcon: {
+        marginRight: "10px"
+    }
+}));
 
 export default function Menu() {
+    const classes = useStyles();
+
     const menuItems = [
         {name: 'Home', icon: <HomeIcon/>, link: '/'},
         {name: 'News', icon: <NewReleasesIcon/>, link: '/news'},
@@ -24,13 +41,13 @@ export default function Menu() {
     ];
 
     return <List>
-        {menuItems.map((menuItem) => (
-            <Link to={menuItem.link}>
+        {menuItems.map((menuItem, key) => (
+            <NavLink to={menuItem.link} key={key} className={classes.menuLink} activeClassName={classes.menuLinkActive} exact={true}>
                 <ListItem button key={menuItem.name}>
                     <ListItemIcon>{menuItem.icon}</ListItemIcon>
                     <ListItemText primary={menuItem.name}/>
                 </ListItem>
-            </Link>
+            </NavLink>
         ))}
     </List>
 };
