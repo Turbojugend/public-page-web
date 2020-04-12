@@ -11,25 +11,16 @@ import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import MailIcon from "@material-ui/icons/Mail";
 import {NavLink} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
-import {makeStyles} from "@material-ui/core/styles";
+import styled from "@emotion/styled";
+import {ClassNames} from '@emotion/core'
 
-const useStyles = makeStyles(({
-    menuLink: {
-        textDecoration: "none",
-        color: "#000",
-        display: "block",
-    },
-    menuLinkActive: {
-        background: "#CCC"
-    },
-    menuIcon: {
-        marginRight: "10px"
-    }
-}));
+const NavLinkStyled = styled(NavLink)`
+    text-decoration: none;
+    color: #000;
+    display: block;
+`;
 
 export default function Menu() {
-    const classes = useStyles();
-
     const menuItems = [
         {name: 'Home', icon: <HomeIcon/>, link: '/'},
         {name: 'News', icon: <NewReleasesIcon/>, link: '/news'},
@@ -40,14 +31,18 @@ export default function Menu() {
         {name: 'Communication', icon: <MailIcon/>, link: '/communications'}
     ];
 
-    return <List>
-        {menuItems.map((menuItem, key) => (
-            <NavLink to={menuItem.link} key={key} className={classes.menuLink} activeClassName={classes.menuLinkActive} exact={true}>
-                <ListItem button key={menuItem.name}>
-                    <ListItemIcon>{menuItem.icon}</ListItemIcon>
-                    <ListItemText primary={menuItem.name}/>
-                </ListItem>
-            </NavLink>
-        ))}
-    </List>
+    return <ClassNames>
+        {({ css }) => (
+            <List>
+                {menuItems.map((menuItem, key) => (
+                    <NavLinkStyled to={menuItem.link} key={key} exact={true} activeClassName={css({background: '#CCC'})}>
+                        <ListItem button key={menuItem.name}>
+                            <ListItemIcon>{menuItem.icon}</ListItemIcon>
+                            <ListItemText primary={menuItem.name}/>
+                        </ListItem>
+                    </NavLinkStyled>
+                ))}
+            </List>
+        )}
+    </ClassNames>
 };
