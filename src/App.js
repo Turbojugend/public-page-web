@@ -19,6 +19,7 @@ import JoinChapter from "./Components/Sections/JoinChapter/JoinChapter";
 import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Home from "./Components/Sections/Home/Home";
 import styled from '@emotion/styled';
+import CreateChapter from "./Components/Sections/CreateChapter/CreateChapter";
 
 const drawerWidth = 260;
 
@@ -158,6 +159,9 @@ function App() {
                             <div className={classes.toolbar}/>
                             <MainContainer maxWidth="sm">
                                 <Switch>
+                                    <Route path="/create-a-chapter">
+                                        <CreateChapter/>
+                                    </Route>
                                     <Route path="/join-a-chapter">
                                         <JoinChapter/>
                                     </Route>

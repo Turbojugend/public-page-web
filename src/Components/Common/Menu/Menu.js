@@ -12,7 +12,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import {NavLink} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
 import styled from "@emotion/styled";
-import {ClassNames} from '@emotion/core'
+import {ClassNames} from '@emotion/core';
+import AddIcon from '@material-ui/icons/Add';
 
 const NavLinkStyled = styled(NavLink)`
     text-decoration: none;
@@ -25,6 +26,7 @@ export default function Menu() {
         {name: 'Home', icon: <HomeIcon/>, link: '/'},
         {name: 'News', icon: <NewReleasesIcon/>, link: '/news'},
         {name: 'Rules', icon: <ListIcon/>, link: '/rules'},
+        {name: 'Create a chapter', icon: <AddIcon/>, link: '/create-a-chapter'},
         {name: 'Join a chapter', icon: <PersonAddIcon/>, link: '/join-a-chapter'},
         {name: 'Local jugends', icon: <PublicIcon/>, link: '/local-jugends'},
         {name: 'Assport', icon: <AssignmentIndIcon/>, link: '/assport'},
