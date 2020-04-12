@@ -11,26 +11,17 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Button from "@material-ui/core/Button";
 import {useDropzone} from "react-dropzone";
-import {makeStyles} from "@material-ui/core/styles";
+import styled from "@emotion/styled";
+
+const FormControlStyled = styled(FormControl)`
+     margin: 8px;
+`;
+
+const TextFieldStyled = styled(TextField)`
+    margin: 0 8px;
+`;
 
 export default function JoinChapter() {
-    const useStyles = makeStyles(theme => ({
-        formContainer: {
-            border: '1px solid #000',
-        },
-        form: {
-            margin: '20px 0',
-        },
-        formControl: {
-            margin: theme.spacing(1),
-            minWidth: 120,
-        },
-        selectEmpty: {
-            marginTop: theme.spacing(2),
-        },
-    }));
-
-    const classes = useStyles();
     const [country, setCountry] = React.useState('');
     const [jugend, setJugend] = React.useState('');
     const [position, setPosition] = React.useState('');
@@ -81,7 +72,7 @@ export default function JoinChapter() {
     }, []);
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
-    return <form noValidate autoComplete="off" className={classes.form}>
+    return <form noValidate autoComplete="off">
         <Grid container spacing={3}>
             <Grid item xs={12}>
                 <p>If you want to join an existing jugend please get in touch with the local
@@ -90,54 +81,14 @@ export default function JoinChapter() {
                     (jugendwart@turbojugend.org)</p>
             </Grid>
             <Grid item xs={6}>
-                <TextField
-                    id="warrior-name"
-                    label="Warrior name"
-                    style={{margin: 8}}
-                    fullWidth
-                    required
-                />
-                <TextField
-                    id="optional-teaser"
-                    label="Optional teaser"
-                    style={{margin: 8}}
-                    multiline
-                    fullWidth
-                    required
-                />
-                <TextField
-                    id="first-name"
-                    label="First name"
-                    style={{margin: 8}}
-                    fullWidth
-                    required
-                />
-                <TextField
-                    id="last-name"
-                    label="Last name"
-                    style={{margin: 8}}
-                    fullWidth
-                    required
-                />
-                <TextField
-                    id="street"
-                    label="Street"
-                    style={{margin: 8}}
-                    fullWidth
-                />
-                <TextField
-                    id="zip-code"
-                    label="Zip code"
-                    style={{margin: 8}}
-                    fullWidth
-                />
-                <TextField
-                    id="city"
-                    label="City"
-                    style={{margin: 8}}
-                    fullWidth
-                />
-                <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
+                <TextFieldStyled id="warrior-name" label="Warrior name" fullWidth required/>
+                <TextFieldStyled id="optional-teaser" label="Optional teaser" multiline fullWidth required/>
+                <TextFieldStyled id="first-name" label="First name" fullWidth required/>
+                <TextFieldStyled id="last-name" label="Last name" fullWidth required/>
+                <TextFieldStyled id="street" label="Street" fullWidth/>
+                <TextFieldStyled id="zip-code" label="Zip code" fullWidth/>
+                <TextFieldStyled id="city" label="City" fullWidth/>
+                <FormControlStyled variant="outlined" fullWidth={true}>
                     <Autocomplete
                         id="country"
                         options={countryList}
@@ -151,24 +102,21 @@ export default function JoinChapter() {
                             return (
                                 <div>
                                     {parts.map((part, index) => (
-                                        <span key={index}
-                                              style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                        <span key={index} style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
                                     ))}
                                 </div>
                             );
                         }}
                     />
-                </FormControl>
-                <FormControl variant="outlined" className={classes.formControl}
-                             fullWidth={true}>
+                </FormControlStyled>
+                <FormControlStyled variant="outlined" fullWidth={true}>
                     <Autocomplete
                         id="jugend"
                         options={jugendList}
                         getOptionLabel={option => option.name}
                         onChange={handleJugendChange}
                         renderInput={params => (
-                            <TextField {...params} label="Jugend" variant="outlined"
-                                       margin="normal"/>
+                            <TextField {...params} label="Jugend" variant="outlined" margin="normal"/>
                         )}
                         renderOption={(option, {inputValue}) => {
                             const matches = match(option.name, inputValue);
@@ -177,23 +125,21 @@ export default function JoinChapter() {
                             return (
                                 <div>
                                     {parts.map((part, index) => (
-                                        <span key={index}
-                                              style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                        <span key={index} style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
                                     ))}
                                 </div>
                             );
                         }}
                     />
-                </FormControl>
-                <FormControl variant="outlined" className={classes.formControl} fullWidth={true}>
+                </FormControlStyled>
+                <FormControlStyled variant="outlined" fullWidth={true}>
                     <Autocomplete
                         id="position"
                         options={positionList}
                         getOptionLabel={option => option.name}
                         onChange={handlePositionChange}
                         renderInput={params => (
-                            <TextField {...params} label="Position" variant="outlined"
-                                       margin="normal"/>
+                            <TextField {...params} label="Position" variant="outlined" margin="normal"/>
                         )}
                         renderOption={(option, {inputValue}) => {
                             const matches = match(option.name, inputValue);
@@ -202,22 +148,15 @@ export default function JoinChapter() {
                             return (
                                 <div>
                                     {parts.map((part, index) => (
-                                        <span key={index}
-                                              style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                        <span key={index} style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
                                     ))}
                                 </div>
                             );
                         }}
                     />
-                </FormControl>
-                <TextField
-                    id="hobbies"
-                    label="Hobbies"
-                    style={{margin: 8}}
-                    multiline
-                    fullWidth
-                />
-                <FormControl className={classes.formControl} fullWidth={true}>
+                </FormControlStyled>
+                <TextFieldStyled id="hobbies" label="Hobbies" multiline fullWidth/>
+                <FormControlStyled fullWidth={true}>
                     <InputLabel htmlFor="input-with-icon-adornment">Mobile phone</InputLabel>
                     <Input
                         id="input-with-icon-adornment"
@@ -228,15 +167,9 @@ export default function JoinChapter() {
                             </InputAdornment>
                         }
                     />
-                </FormControl>
-                <TextField
-                    id="soccer-team"
-                    label="Soccer team"
-                    style={{margin: 8}}
-                    fullWidth
-                />
-                <FormControl variant="outlined" className={classes.formControl}
-                             fullWidth={true}>
+                </FormControlStyled>
+                <TextFieldStyled id="soccer-team" label="Soccer team" fullWidth/>
+                <FormControlStyled variant="outlined" fullWidth={true}>
                     <Autocomplete
                         id="warship"
                         options={warshipList}
@@ -253,41 +186,17 @@ export default function JoinChapter() {
                             return (
                                 <div>
                                     {parts.map((part, index) => (
-                                        <span key={index}
-                                              style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                        <span key={index} style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
                                     ))}
                                 </div>
                             );
                         }}
                     />
-                </FormControl>
-                <TextField
-                    id="warship"
-                    label="Favourite warship"
-                    style={{margin: 8}}
-                    fullWidth
-                    value={warship}
-                />
-                <TextField
-                    id="optional-headline"
-                    label="Optional headline"
-                    style={{margin: 8}}
-                    fullWidth
-                />
-                <TextField
-                    id="optional-text-1"
-                    label="Optional text 1"
-                    style={{margin: 8}}
-                    multiline
-                    fullWidth
-                />
-                <TextField
-                    id="optional-text-2"
-                    label="Optional text 2"
-                    style={{margin: 8}}
-                    multiline
-                    fullWidth
-                />
+                </FormControlStyled>
+                <TextFieldStyled id="warship" label="Favourite warship" fullWidth value={warship}/>
+                <TextFieldStyled id="optional-headline" label="Optional headline" fullWidth/>
+                <TextFieldStyled id="optional-text-1" label="Optional text 1" multiline fullWidth/>
+                <TextFieldStyled id="optional-text-2" label="Optional text 2" multiline fullWidth/>
             </Grid>
             <Grid item xs={6}>
                 <div {...getRootProps()}>
@@ -298,13 +207,7 @@ export default function JoinChapter() {
                             <p>Drag 'n' drop some files here, or click to select files</p>
                     }
                 </div>
-                <TextField
-                    id="image-caption"
-                    label="Image caption"
-                    style={{margin: 8}}
-                    multiline
-                    fullWidth
-                />
+                <TextFieldStyled id="image-caption" label="Image caption" multiline fullWidth/>
             </Grid>
             <Grid item xs={12}>
                 <Button variant="contained" color="primary">
