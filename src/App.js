@@ -16,19 +16,26 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Menu from "./Components/Common/Menu/Menu";
 import JoinChapter from "./Components/Sections/JoinChapter/JoinChapter";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Home from "./Components/Sections/Home/Home";
+import styled from '@emotion/styled';
 
 const drawerWidth = 260;
 
+const RootDiv = styled.div`
+    display: flex;
+`;
+
+const MainContent = styled.main`
+   flex-grow: 1;
+   padding: 24px;
+`;
+
+const MainContainer = styled(Container)`
+    border: 1px solid #000;
+`;
+
 const useStyles = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-    },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
@@ -81,23 +88,6 @@ const useStyles = makeStyles(theme => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
     },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-    },
-    formContainer: {
-        border: '1px solid #000',
-    },
-    form: {
-        margin: '20px 0',
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
 }));
 
 function App() {
@@ -117,7 +107,7 @@ function App() {
         <Router>
             <Box component="span" m={1}>
                 <div className="App">
-                    <div className={classes.root}>
+                    <RootDiv>
                         <CssBaseline/>
                         <AppBar
                             style={{"background":"black"}}
@@ -164,9 +154,9 @@ function App() {
                             <Divider/>
                             <Menu/>
                         </Drawer>
-                        <main className={classes.content}>
+                        <MainContent>
                             <div className={classes.toolbar}/>
-                            <Container maxWidth="sm" className={classes.formContainer}>
+                            <MainContainer maxWidth="sm">
                                 <Switch>
                                     <Route path="/join-a-chapter">
                                         <JoinChapter/>
@@ -175,9 +165,9 @@ function App() {
                                         <Home/>
                                     </Route>
                                 </Switch>
-                            </Container>
-                        </main>
-                    </div>
+                            </MainContainer>
+                        </MainContent>
+                    </RootDiv>
                 </div>
             </Box>
         </Router>
