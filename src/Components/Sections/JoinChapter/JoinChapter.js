@@ -210,9 +210,7 @@ export default function JoinChapter() {
                 <TextFieldStyled id="image-caption" label="Image caption" multiline fullWidth/>
             </Grid>
             <Grid item xs={12}>
-                <Button variant="contained" color="primary">
-                    Send
-                </Button>
+                <Button variant="contained" color="primary">Send</Button>
             </Grid>
         </Grid>
     </form>

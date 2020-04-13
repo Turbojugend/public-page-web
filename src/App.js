@@ -34,6 +34,7 @@ const MainContent = styled.main`
 
 const MainContainer = styled(Container)`
     border: 1px solid #000;
+    padding: 20px;
 `;
 
 const useStyles = makeStyles(theme => ({
