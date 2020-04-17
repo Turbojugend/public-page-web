@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Turbojugend/public-page-web/static/css/main.f3520556.chunk.css",
+    "main.js": "/Turbojugend/public-page-web/static/js/main.d5d86881.chunk.js",
+    "main.js.map": "/Turbojugend/public-page-web/static/js/main.d5d86881.chunk.js.map",
+    "runtime-main.js": "/Turbojugend/public-page-web/static/js/runtime-main.c3c096be.js",
+    "runtime-main.js.map": "/Turbojugend/public-page-web/static/js/runtime-main.c3c096be.js.map",
+    "static/js/2.0bd67a1a.chunk.js": "/Turbojugend/public-page-web/static/js/2.0bd67a1a.chunk.js",
+    "static/js/2.0bd67a1a.chunk.js.map": "/Turbojugend/public-page-web/static/js/2.0bd67a1a.chunk.js.map",
+    "index.html": "/Turbojugend/public-page-web/index.html",
+    "precache-manifest.7b8ef323f68a89461cfdd28887009b45.js": "/Turbojugend/public-page-web/precache-manifest.7b8ef323f68a89461cfdd28887009b45.js",
+    "service-worker.js": "/Turbojugend/public-page-web/service-worker.js",
+    "static/css/main.f3520556.chunk.css.map": "/Turbojugend/public-page-web/static/css/main.f3520556.chunk.css.map",
+    "static/js/2.0bd67a1a.chunk.js.LICENSE.txt": "/Turbojugend/public-page-web/static/js/2.0bd67a1a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c3c096be.js",
+    "static/js/2.0bd67a1a.chunk.js",
+    "static/css/main.f3520556.chunk.css",
+    "static/js/main.d5d86881.chunk.js"
+  ]
+}
