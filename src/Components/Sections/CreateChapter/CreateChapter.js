@@ -7,6 +7,14 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Alert from "@material-ui/lab/Alert";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import match from "autosuggest-highlight/match";
+import parse from "autosuggest-highlight/parse";
+import FormControl from "@material-ui/core/FormControl";
+
+const FormControlStyled = styled(FormControl)`
+    margin: 8px;
+`;
 
 const TextFieldStyled = styled(TextField)`
     margin: 0 8px;
@@ -21,12 +29,19 @@ export default function CreateChapter() {
     const [chapterName, setChapterName] = useState('');
     const [warriorName, setWarriorName] = useState('');
     const [email, setEmail] = useState('');
+    const [location, setLocation] = useState();
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setFormSubmitted(true);
     }
+
+    const locationList = [
+        {name: 'Barcelona'},
+        {name: 'Oslo'},
+        {name: 'Hamburg'},
+    ]
 
     return <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <div>
@@ -64,6 +79,26 @@ export default function CreateChapter() {
                     value={chapterName}
                     onChange={e => setChapterName(e.target.value)}
                 />
+                <FormControlStyled variant="outlined" fullWidth={true}>
+                    <Autocomplete
+                        options={locationList}
+                        getOptionLabel={option => option.name}
+                        renderInput={params => <TextField {...params} label="Location" variant="outlined" />}
+                        onChange={(e, v) => setLocation(v)}
+                        renderOption={(option, {inputValue}) => {
+                            const matches = match(option.name, inputValue);
+                            const parts = parse(option.name, matches);
+
+                            return (
+                                <div>
+                                    {parts.map((part, index) => (
+                                        <span key={index} style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
+                                    ))}
+                                </div>
+                            );
+                        }}
+                    />
+                </FormControlStyled>
             </Section>
             <Divider/>
             <Section>
@@ -108,6 +143,7 @@ export default function CreateChapter() {
         {formSubmitted &&
         <ul>
             <li>Chapter name: {chapterName}</li>
+            <li>Location: {location.name}</li>
             <li>Warrior name: {warriorName}</li>
             <li>Email: {email}</li>
             <li>Accepted rules: {acceptRules ? 'YES' : 'NO'}</li>

@@ -14,7 +14,7 @@ import {useDropzone} from "react-dropzone";
 import styled from "@emotion/styled";
 
 const FormControlStyled = styled(FormControl)`
-     margin: 8px;
+    margin: 8px;
 `;
 
 const TextFieldStyled = styled(TextField)`
