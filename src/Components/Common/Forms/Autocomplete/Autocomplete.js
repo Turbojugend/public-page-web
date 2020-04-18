@@ -8,7 +8,7 @@ export default function Autocomplete(props) {
     return <AutocompleteMui
         options={props.optionList}
         getOptionLabel={option => option.name}
-        renderInput={params => <TextField {...params} label="Location" variant="outlined" />}
+        renderInput={params => <TextField {...params} label={props.label} variant="outlined" />}
         onChange={(e, v) => props.onChange(v)}
         renderOption={(option, {inputValue}) => {
             const matches = match(option.name, inputValue);

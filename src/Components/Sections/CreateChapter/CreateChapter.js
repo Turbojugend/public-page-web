@@ -78,7 +78,11 @@ export default function CreateChapter() {
                     onChange={e => setChapterName(e.target.value)}
                 />
                 <FormControlStyled variant="outlined" fullWidth={true}>
-                    <Autocomplete optionList={locationList} onChange={setLocation} />
+                    <Autocomplete
+                        optionList={locationList}
+                        onChange={setLocation}
+                        label="Location"
+                    />
                 </FormControlStyled>
             </Section>
             <Divider/>
