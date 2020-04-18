@@ -7,10 +7,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Alert from "@material-ui/lab/Alert";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import match from "autosuggest-highlight/match";
-import parse from "autosuggest-highlight/parse";
 import FormControl from "@material-ui/core/FormControl";
+import Autocomplete from "../../Common/Forms/Autocomplete/Autocomplete";
 
 const FormControlStyled = styled(FormControl)`
     margin: 8px;
@@ -80,24 +78,7 @@ export default function CreateChapter() {
                     onChange={e => setChapterName(e.target.value)}
                 />
                 <FormControlStyled variant="outlined" fullWidth={true}>
-                    <Autocomplete
-                        options={locationList}
-                        getOptionLabel={option => option.name}
-                        renderInput={params => <TextField {...params} label="Location" variant="outlined" />}
-                        onChange={(e, v) => setLocation(v)}
-                        renderOption={(option, {inputValue}) => {
-                            const matches = match(option.name, inputValue);
-                            const parts = parse(option.name, matches);
-
-                            return (
-                                <div>
-                                    {parts.map((part, index) => (
-                                        <span key={index} style={{fontWeight: part.highlight ? 700 : 400}}>{part.text}</span>
-                                    ))}
-                                </div>
-                            );
-                        }}
-                    />
+                    <Autocomplete optionList={locationList} onChange={setLocation} />
                 </FormControlStyled>
             </Section>
             <Divider/>
