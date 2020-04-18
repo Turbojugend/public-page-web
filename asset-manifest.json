@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Turbojugend/public-page-web/static/css/main.f3520556.chunk.css",
-    "main.js": "/Turbojugend/public-page-web/static/js/main.148338fb.chunk.js",
-    "main.js.map": "/Turbojugend/public-page-web/static/js/main.148338fb.chunk.js.map",
-    "runtime-main.js": "/Turbojugend/public-page-web/static/js/runtime-main.c3c096be.js",
-    "runtime-main.js.map": "/Turbojugend/public-page-web/static/js/runtime-main.c3c096be.js.map",
-    "static/js/2.1a3a452d.chunk.js": "/Turbojugend/public-page-web/static/js/2.1a3a452d.chunk.js",
-    "static/js/2.1a3a452d.chunk.js.map": "/Turbojugend/public-page-web/static/js/2.1a3a452d.chunk.js.map",
-    "index.html": "/Turbojugend/public-page-web/index.html",
-    "precache-manifest.9ed1b8902a686be231b999d803a9012a.js": "/Turbojugend/public-page-web/precache-manifest.9ed1b8902a686be231b999d803a9012a.js",
-    "service-worker.js": "/Turbojugend/public-page-web/service-worker.js",
-    "static/css/main.f3520556.chunk.css.map": "/Turbojugend/public-page-web/static/css/main.f3520556.chunk.css.map",
-    "static/js/2.1a3a452d.chunk.js.LICENSE.txt": "/Turbojugend/public-page-web/static/js/2.1a3a452d.chunk.js.LICENSE.txt"
+    "main.css": "/public-page-web/static/css/main.f3520556.chunk.css",
+    "main.js": "/public-page-web/static/js/main.f87c18ce.chunk.js",
+    "main.js.map": "/public-page-web/static/js/main.f87c18ce.chunk.js.map",
+    "runtime-main.js": "/public-page-web/static/js/runtime-main.5aa6dd60.js",
+    "runtime-main.js.map": "/public-page-web/static/js/runtime-main.5aa6dd60.js.map",
+    "static/js/2.1a3a452d.chunk.js": "/public-page-web/static/js/2.1a3a452d.chunk.js",
+    "static/js/2.1a3a452d.chunk.js.map": "/public-page-web/static/js/2.1a3a452d.chunk.js.map",
+    "index.html": "/public-page-web/index.html",
+    "precache-manifest.25bd0bebeac394ba9180acf4da5bea9c.js": "/public-page-web/precache-manifest.25bd0bebeac394ba9180acf4da5bea9c.js",
+    "service-worker.js": "/public-page-web/service-worker.js",
+    "static/css/main.f3520556.chunk.css.map": "/public-page-web/static/css/main.f3520556.chunk.css.map",
+    "static/js/2.1a3a452d.chunk.js.LICENSE.txt": "/public-page-web/static/js/2.1a3a452d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c3c096be.js",
+    "static/js/runtime-main.5aa6dd60.js",
     "static/js/2.1a3a452d.chunk.js",
     "static/css/main.f3520556.chunk.css",
-    "static/js/main.148338fb.chunk.js"
+    "static/js/main.f87c18ce.chunk.js"
   ]
 }
