@@ -111,7 +111,6 @@ export default function JoinChapter() {
                         label="Warship"
                     />
                 </FormControlStyled>
-                <TextFieldStyled label="Favourite warship" fullWidth value={warship}/>
                 <TextFieldStyled label="Optional headline" fullWidth/>
                 <TextFieldStyled label="Optional text 1" multiline fullWidth/>
                 <TextFieldStyled label="Optional text 2" multiline fullWidth/>
