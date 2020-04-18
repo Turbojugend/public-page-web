@@ -82,6 +82,7 @@ export default function CreateChapter() {
                         optionList={locationList}
                         onChange={setLocation}
                         label="Location"
+                        field="name"
                     />
                 </FormControlStyled>
             </Section>
@@ -128,7 +129,7 @@ export default function CreateChapter() {
         {formSubmitted &&
         <ul>
             <li>Chapter name: {chapterName}</li>
-            <li>Location: {location.name}</li>
+            <li>Location: {location}</li>
             <li>Warrior name: {warriorName}</li>
             <li>Email: {email}</li>
             <li>Accepted rules: {acceptRules ? 'YES' : 'NO'}</li>

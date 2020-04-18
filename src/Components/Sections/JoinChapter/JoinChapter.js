@@ -75,6 +75,7 @@ export default function JoinChapter() {
                         optionList={countryList}
                         onChange={setCountry}
                         label="Country"
+                        field="name"
                     />
                 <FormControlStyled variant="outlined" fullWidth={true}>
                 </FormControlStyled>
@@ -82,6 +83,7 @@ export default function JoinChapter() {
                         optionList={jugendList}
                         onChange={setJugend}
                         label="Jugend"
+                        field="name"
                     />
                 </FormControlStyled>
                 <FormControlStyled variant="outlined" fullWidth={true}>
@@ -89,6 +91,7 @@ export default function JoinChapter() {
                         optionList={positionList}
                         onChange={setPosition}
                         label="Position"
+                        field="name"
                     />
                 </FormControlStyled>
                 <TextFieldStyled label="Hobbies" multiline fullWidth/>
@@ -107,8 +110,9 @@ export default function JoinChapter() {
                 <FormControlStyled variant="outlined" fullWidth={true}>
                     <Autocomplete
                         optionList={warshipList}
-                        onChange={setWarship}
+                        onInputChange={(e) => setWarship(e.target.value)}
                         label="Warship"
+                        freeSolo={true}
                     />
                 </FormControlStyled>
                 <TextFieldStyled label="Optional headline" fullWidth/>
@@ -130,9 +134,9 @@ export default function JoinChapter() {
                 <Button variant="contained" color="primary">Send</Button>
             </Grid>
         </Grid>
-        <p>{country.name}</p>
-        <p>{jugend.name}</p>
-        <p>{position.name}</p>
-        <p>{warship.name}</p>
+        <p>{country}</p>
+        <p>{jugend}</p>
+        <p>{position}</p>
+        <p>{warship}</p>
     </form>
 };

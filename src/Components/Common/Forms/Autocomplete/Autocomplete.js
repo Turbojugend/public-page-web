@@ -8,8 +8,15 @@ export default function Autocomplete(props) {
     return <AutocompleteMui
         options={props.optionList}
         getOptionLabel={option => option.name}
-        renderInput={params => <TextField {...params} label={props.label} variant="outlined" />}
-        onChange={(e, v) => props.onChange(v)}
+        renderInput={params => <TextField
+            {...params}
+            label={props.label}
+            variant="outlined"
+            onChange={props.onInputChange || null}
+        />}
+        onChange={props.onChange ? (e, v) => props.onChange(v[props.field]) : null}
+        freeSolo={props.freeSolo || false}
+        selectOnFocus={(props.freeSolo && props.freeSolo === true) || false}
         renderOption={(option, {inputValue}) => {
             const matches = match(option.name, inputValue);
             const parts = parse(option.name, matches);
