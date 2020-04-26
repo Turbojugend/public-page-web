@@ -2,7 +2,7 @@
   "name": "public-page-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Turbojugend/public-page-web",
+  "homepage": "https://turbojugend.github.com/public-page-web",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
